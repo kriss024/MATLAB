@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!-- saved from url=(0034)http://si-lab.cba.pl/SSN_wstep.htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Sztuczne sieci neuronowe - informacje wstępne</title>
+<meta http-equiv="Content-Language" content="pl">
+
+<!--]>--><style type="text/css">div#reklamacba { display: block !important; text-align: center; height: auto; top: 0 !important; position: relative !important; z-index: 10000 !important; }</style><style type="text/css"></style><script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script></head><body bgcolor="white" text="black" link="blue" vlink="purple" alink="red"><div id="reklamacba">
+<div style="width: 750px; margin: auto">
+<script type="text/javascript">
+// <![CDATA[
+sas_tmstp=Math.round(Math.random()*10000000000);sas_masterflag=1;
+function SmartAdServer(sas_pageid,sas_formatid,sas_target) {
+ if (sas_masterflag==1) {sas_masterflag=0;sas_master='M';} else {sas_master='S';};
+ document.write('<scr'+'ipt src="http://www7.smartadserver.com/call/pubj/' + sas_pageid + '/' + sas_formatid + '/' + sas_master + '/' + sas_tmstp + '/' + escape(sas_target) + '?"></scr'+'ipt>');
+}
+// ]]>
+</script>
+<script type="text/javascript" src="./Sztuczne sieci neuronowe - informacje wstępne_files/adexonsmart"></script>
+<!-- Strona : cba -->
+<script type="text/javascript">
+// <![CDATA[
+sas_pageid='57174/429604';	// Strona : cba
+sas_formatid=25036;		// Format : 750x200 750x200
+sas_target='BETags=' + BETags.replace(';', ',');			// Targetowanie
+SmartAdServer(sas_pageid,sas_formatid,sas_target);
+// ]]>
+</script><script src="http://www7.smartadserver.com/call/pubj/57174/429604/25036/M/7654757269/BETags%3D?"></script>
+<noscript>
+&lt;a href="http://www7.smartadserver.com/call/pubjumpi/57174/429604/25036/M/[timestamp]/?" target="_blank"&gt;
+&lt;img src="http://www7.smartadserver.com/call/pubi/57174/429604/25036/M/[timestamp]/?" border="0" alt="" /&gt;&lt;/a&gt;
+</noscript></div></div>
+
+
+<p><font size="5">Sztuczne sieci neuronowe - informacje wstępne</font></p>
+<p>&nbsp;</p>
+<p>1 Informacje wstępne</p>
+<p>1.1 Funkcje aktywacji</p>
+<p>W Matlabie dostępnych jest wiele funkcji aktywacji, np:</p>
+<p>• hardlim - Heaviside’a - Uwaga! Nie nadaje się do sieci uczonych, bo nie jest różniczkowalna.<br>
+• purelin - liniowa<br>
+• logsig - Fermiego - wartości od 0 do 1 &nbsp;<font face="Courier New">f(x) = 1/(1 + exp( x))</font><br>
+• tansig - tangens hiperboliczny - wartości od -1 do 1</p>
+<p>Funkcje aktywacji można łatwo zademonstrować rysując ją na ekranie.<br>
+Na przykład:</p>
+<p><font face="Courier New">n = -5:0.1:5;<br>
+plot(n,hardlim(n),’c+:’);</font></p>
+<p>Użytkownicy mogą tworzyć również własne funkcje aktywacji.</p>
+<p>1.2 Tworzenie sieci</p>
+<p>Do tworzenia sieci służą m.in. funkcje:</p>
+<p>• newp - tworzy pojedynczy perceptron<br>
+• newff - tworzy sieci typu feed-forward<br>
+• newhop - tworzy sieci Hopfield’a</p>
+<p>Utworzenie dwuwarstwowej (o jednej warstwie ukrytej) sieci typu feedforward o dwóch wejściach:</p>
+<p><font face="Courier New">net = newff([0 10; 0 10],[5 1],{’tansig’ ’purelin’});</font></p>
+<p>Utworzona sieć ma 5 neuronów w warstwie ukrytej i jedno wyjście. Wartości wejściowe powinny znajdować się w przedziale &lt; 0; 10 &gt;. Sieci neuronowe w 
+Matlabie są obiektami, więc możliwy jest dostęp do ich parametrów. Najistotniejsze parametry to:</p>
+<p>• wagi wejść sieci - <font face="Courier New">net.IW{n</font>} – n - numer warstwy</p>
+<p>• wagi pomiędzy warstwami -<font face="Courier New"> net.LW{n, m}</font> – n - numer warstwy docelowej, m - numer warstwy źródłowej</p>
+<p>• wartości progowe - <font face="Courier New">net.b{n</font>} – n - numer warstwy</p>
+<p>• liczba iteracji w trakcie uczenia - <font face="Courier New">net.trainParam.epochs</font></p>
+<p>• akceptowalny błąd - <font face="Courier New">net.trainParam.goal</font></p>
+<p>• liczba kroków algorytmu uczenia, po którym wyświetlany jest komunikat - <font face="Courier New">net.trainParam.show</font></p>
+<p>Powyższe parametry można zapisywać i odczytywać.<br>
+Przed rozpoczęciem uczenia sieci należy ją zainicjować:</p>
+<p><font face="Courier New">net = init(net);</font></p>
+<p>Do uczenia sieci służy funkcja train, np.:</p>
+<p><font face="Courier New">net = train(net, X, Y);</font></p>
+<p>gdzie, X - wektor argumentów, a Y - wektor wartości uczonej funkcji.<br>
+Z nauczoną siecią można eksperymentować przy użyciu funkcji sim, np.:</p>
+<p><font face="Courier New">Y = sim(net, T);</font></p>
+<p>gdzie, T - wektor testowy, Y - wynik działania sieci.</p>
+<p>&nbsp;</p>
+<!--]--><div style="text-align:center;font-size:11px" class="cbalink"><a href="http://www.cba.pl/" title="darmowy hosting">Darmowy Hosting</a> CBA.PL<br><br></div>
+<script type="text/javascript" src="./Sztuczne sieci neuronowe - informacje wstępne_files/r1.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+var dd = document.getElementById("reklamacba");
+if (dd)
+{
+	var child = dd.childNodes;
+	var ok = false;
+
+	for (var i = 0; i < child.length; i++)
+	{
+		if (child[i].tagName == "IFRAME" || child[i].tagName == "IMG" || child[i].tagName == "OBJECT" || child[i].tagName == "DIV")
+		{
+			ok = true;
+			break;
+		}
+	}
+	if (ok == false)
+	{
+		dd.innerHTML = '<!--googleoff: all--><!--noindex--><img src="http://www.cba.pl/cba.gif" alt=""/><!--/noindex--><!--googleon: all-->';
+	}
+}
+// ]]>
+</script>
+
+
+</body></html>

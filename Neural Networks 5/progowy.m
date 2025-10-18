@@ -1,1 +1,0 @@
-disp(net.b)
